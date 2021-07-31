@@ -53,31 +53,53 @@ body {
 }
 
 .contactlistitem:hover {
-  /* background: linear-gradient(
-    90deg,
-    rgb(12, 151, 179) 0%,
-    rgba(0, 212, 255, 1) 35%,
-    rgb(255, 255, 255) 100%
-  ); */
   background-color: rgb(19, 152, 152);
+  transform: scale(1.05);
   font-weight: 900;
   color: white;
 }
 
 /* USER DETAILS PAGE */
 .userDetailsContainerOuter {
-  /* display: flex;
-  flex-direction: row;
-  justify-self: center; */
   position: absolute;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -25%);
+  background-color: #f6f1f0;
+  padding: 5%;
 }
 .userDetailsContainerInner {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.userDetailsName {
+  font-size: 5rem;
+  color: rgb(19, 152, 152);
+}
+.userDetailsUserName {
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+.userDetailsMeta {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  color: #282c34;
+}
+
+.userDetailsRows {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.userDetailsRow {
+  align-items: center;
+}
+
+.backArrow {
+  color: rgb(19, 152, 152);
 }
 
 @media (prefers-reduced-motion: no-preference) {

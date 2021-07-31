@@ -9,6 +9,7 @@ import {
 } from "../store/actions";
 import ContactListItem from "../components/contactListItem";
 import "../App.css";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 // import PropTypes from "prop-types";
 
@@ -47,7 +48,7 @@ const Home = () => {
         <div>{error}</div>
       ) : (
         <div>
-          {isLoading && <div>LOADING...</div>}
+          {isLoading && <CircularProgress />}
           {!isLoading && userData?.length ? (
             <>
               <div className="headingContainer">
