@@ -33,16 +33,13 @@ const Home = props => {
         console.log({ err });
         dispatch(getUsersFailed(err.message));
       });
-    return clearData;
+    return () => {
+      //Clear Data on unmount
+      dispatch(getUsersClear());
+    };
   }, [dispatch]);
 
   useEffect(() => console.log("USER DATA:", userData), [userData]);
-
-  const clearData = () => {
-    //Clear Data on unmount
-    dispatch(getUsersClear());
-  };
-
   return (
     <div>
       {error ? (
