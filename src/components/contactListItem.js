@@ -2,14 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import Avatar from "@material-ui/core/Avatar";
+import getInitials from "../utility/getInitials";
 
 function ContactListItem({ user }) {
-  const getInitials = str => {
-    const arr = str.split(" ");
-    const initialsArr = arr.map(item => item[0]);
-    return initialsArr.join("");
-  };
-
   return (
     <div key={user.id}>
       <Link

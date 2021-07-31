@@ -7,6 +7,8 @@ import LanguageIcon from "@material-ui/icons/Language";
 import PhoneIcon from "@material-ui/icons/Phone";
 import HomeIcon from "@material-ui/icons/Home";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import Avatar from "@material-ui/core/Avatar";
+import getInitials from "../utility/getInitials";
 
 function UserDetails(props) {
   const { name, phone, username, website, email, address } =
@@ -26,6 +28,15 @@ function UserDetails(props) {
       </Link>
       <div className="userDetailsContainerOuter">
         <div className="userDetailsContainerInner">
+          <Avatar
+            style={{
+              backgroundColor: "#f7bd59",
+              height: "10rem",
+              width: "10rem",
+            }}
+          >
+            <span style={{ fontSize: "6rem" }}>{getInitials(username)}</span>
+          </Avatar>
           <div className="userDetailsName">{username}</div>
           <div className="userDetailsMeta userDetailsUserName">({name})</div>
           <div className="userDetailsRows">

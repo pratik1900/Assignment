@@ -24,7 +24,7 @@ body {
   padding: 1%;
   font-weight: 900;
   font-size: 36px;
-  background-color: #f6f1f0;
+  /* background-color: #f6f1f0; */
   /* text-align: center; */
 }
 
@@ -82,12 +82,13 @@ body {
 }
 
 .userDetailsName {
-  font-size: 5rem;
+  font-size: 4.5rem;
   color: rgb(19, 152, 152);
 }
 .userDetailsUserName {
   font-weight: 800;
   margin-bottom: 3rem;
+  margin-top: 1rem;
 }
 .userDetailsMeta {
   font-size: 1.5rem;
@@ -114,6 +115,10 @@ body {
 
 .backArrow {
   color: rgb(19, 152, 152);
+}
+
+.avatar {
+  color: "#f7bd59";
 }
 
 @media (prefers-reduced-motion: no-preference) {
