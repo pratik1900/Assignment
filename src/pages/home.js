@@ -1,37 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getUsersSuccess,
+  getUsersFailed,
+  getUsersClear,
+} from "../store/actions";
+import ContactListItem from "../components/contactListItem";
 
 // import PropTypes from "prop-types";
 
 const Home = props => {
-  const [userData, setUserData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+  let userData = useSelector(state => state.data);
+  let isLoading = useSelector(state => state.loader);
+  let error = useSelector(state => state.error);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then(response => {
-        setIsLoading(false);
         if (response.status === 200 && response.data.length) {
           console.log("fetched data: ", response);
-          setUserData(response.data);
+          dispatch(getUsersSuccess(response.data));
         } else {
-          setUserData(null);
+          dispatch(getUsersSuccess(null));
         }
       })
       .catch(err => {
         console.log({ err });
-        setError(err.message);
+        dispatch(getUsersFailed(err.message));
       });
     return clearData;
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => console.log("USER DATA:", userData), [userData]);
 
   const clearData = () => {
     //Clear Data on unmount
+    dispatch(getUsersClear());
   };
 
   return (
@@ -40,23 +49,13 @@ const Home = props => {
         <div>{error}</div>
       ) : (
         <div>
-          {userData?.length ? (
+          {isLoading && <div>LOADING...</div>}
+          {!isLoading && userData?.length ? (
             <>
               <div> USERS FOUND :</div>
               <ul>
                 {userData.map(user => (
-                  <div key={user.id}>
-                    <Link
-                      to={{
-                        pathname: `/users-details/${user.id}`,
-                        state: {
-                          userInfo: user,
-                        },
-                      }}
-                    >
-                      {user.name}
-                    </Link>
-                  </div>
+                  <ContactListItem user={user} />
                 ))}
               </ul>
             </>
