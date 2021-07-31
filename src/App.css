@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+body {
+  font-family: "Raleway";
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +11,73 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.headingContainer {
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.headingText {
+  display: inline-block;
+  padding: 1%;
+  font-weight: 900;
+  font-size: 36px;
+  background-color: #f6f1f0;
+  /* text-align: center; */
+}
+
+.headingUnderline {
+  width: 80%;
+  margin-left: 0;
+}
+
+.contactlist {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  /* margin-left: 1%; */
+}
+.contactlistitem {
+  /* background-color: teal; */
+  width: 30%;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 0.6%;
+  padding-right: 5%;
+  cursor: pointer;
+  transition: 0.2s;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-size: large;
+}
+
+.contactlistitem:hover {
+  /* background: linear-gradient(
+    90deg,
+    rgb(12, 151, 179) 0%,
+    rgba(0, 212, 255, 1) 35%,
+    rgb(255, 255, 255) 100%
+  ); */
+  background-color: rgb(19, 152, 152);
+  font-weight: 900;
+  color: white;
+}
+
+/* USER DETAILS PAGE */
+.userDetailsContainerOuter {
+  /* display: flex;
+  flex-direction: row;
+  justify-self: center; */
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+.userDetailsContainerInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -26,13 +99,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

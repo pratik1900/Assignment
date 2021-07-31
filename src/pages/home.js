@@ -8,10 +8,11 @@ import {
   getUsersClear,
 } from "../store/actions";
 import ContactListItem from "../components/contactListItem";
+import "../App.css";
 
 // import PropTypes from "prop-types";
 
-const Home = props => {
+const Home = () => {
   let userData = useSelector(state => state.data);
   let isLoading = useSelector(state => state.loader);
   let error = useSelector(state => state.error);
@@ -49,10 +50,13 @@ const Home = props => {
           {isLoading && <div>LOADING...</div>}
           {!isLoading && userData?.length ? (
             <>
-              <div> USERS FOUND :</div>
-              <ul>
+              <div className="headingContainer">
+                <div className="headingText">USERS FOUND</div>
+                <hr className="headingUnderline" />
+              </div>
+              <ul className="contactlist">
                 {userData.map(user => (
-                  <ContactListItem user={user} />
+                  <ContactListItem key={user.id} user={user} />
                 ))}
               </ul>
             </>
