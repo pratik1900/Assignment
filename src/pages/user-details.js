@@ -14,6 +14,11 @@ function UserDetails(props) {
 
   const { city, street, suite, zipcode } = address;
 
+  const sendMail = () => {
+    const mailto = `mailto:${email}?subject=Test subject&body=Body content`;
+    window.location.href = mailto;
+  };
+
   return (
     <>
       <Link to="/">
@@ -36,11 +41,17 @@ function UserDetails(props) {
             </div>
             <div className="userDetailsRow">
               <EmailIcon />
-              <span className="userDetailsMeta">{email}</span>
+              <button onClick={sendMail}>
+                <span className="userDetailsMeta">{email}</span>
+              </button>
+              {/* <span className="userDetailsMeta">{email}</span> */}
             </div>
             <div className="userDetailsRow">
               <HomeIcon />
-              <span className="userDetailsMeta">{`${suite}, ${street}, ${city}, ${zipcode}`}</span>
+              <div className="addressRows">
+                <div className="userDetailsMeta">{`${suite}, ${street}`}</div>
+                <div className="userDetailsMeta">{`${city}, ${zipcode}`}</div>
+              </div>
             </div>
           </div>
         </div>

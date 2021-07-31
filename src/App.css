@@ -39,10 +39,13 @@ body {
   align-content: space-between;
   /* margin-left: 1%; */
 }
-.contactlistitem {
+.contactListItem {
   /* background-color: teal; */
   width: 30%;
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-bottom: 20px;
   padding: 0.6%;
   padding-right: 5%;
@@ -52,7 +55,11 @@ body {
   font-size: large;
 }
 
-.contactlistitem:hover {
+.contactListItemName {
+  margin-left: 1rem;
+}
+
+.contactListItem:hover {
   background-color: rgb(19, 152, 152);
   transform: scale(1.05);
   font-weight: 900;
@@ -80,7 +87,7 @@ body {
 }
 .userDetailsUserName {
   font-weight: 800;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .userDetailsMeta {
   font-size: 1.5rem;
@@ -95,7 +102,14 @@ body {
 }
 
 .userDetailsRow {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+}
+
+.addressRows {
+  display: flex;
+  flex-direction: column;
 }
 
 .backArrow {
