@@ -20,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/user")
+      .get("https://jsonplaceholder.typicode.com/users")
       .then(response => {
         if (response.status === 200 && response.data.length) {
           console.log("fetched data: ", response);
