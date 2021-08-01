@@ -115,10 +115,25 @@ body {
 
 .backArrow {
   color: rgb(19, 152, 152);
+  padding: 1%;
+  font-size: xx-large;
 }
 
 .avatar {
   color: "#f7bd59";
+}
+
+.errorContainer {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+.errorText {
+  color: rgb(206, 66, 66);
+  font-size: xx-large;
+  font-weight: 700;
 }
 
 @media (prefers-reduced-motion: no-preference) {

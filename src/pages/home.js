@@ -11,8 +11,6 @@ import ContactListItem from "../components/contactListItem";
 import "../App.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-// import PropTypes from "prop-types";
-
 const Home = () => {
   let userData = useSelector(state => state.data);
   let isLoading = useSelector(state => state.loader);
@@ -22,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get("https://jsonplaceholder.typicode.com/user")
       .then(response => {
         if (response.status === 200 && response.data.length) {
           console.log("fetched data: ", response);
@@ -41,11 +39,12 @@ const Home = () => {
     };
   }, [dispatch]);
 
-  useEffect(() => console.log("USER DATA:", userData), [userData]);
   return (
     <div>
       {error ? (
-        <div>{error}</div>
+        <div className="errorContainer">
+          <div className="errorText">{error}</div>
+        </div>
       ) : (
         <div>
           {isLoading && <CircularProgress />}
@@ -61,9 +60,7 @@ const Home = () => {
                 ))}
               </ul>
             </>
-          ) : (
-            <div>NO USERS FOUND</div>
-          )}
+          ) : null}
         </div>
       )}
     </div>

@@ -10,16 +10,11 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import Avatar from "@material-ui/core/Avatar";
 import getInitials from "../utility/getInitials";
 
-function UserDetails(props) {
+function UserDetails() {
   const { name, phone, username, website, email, address } =
     useLocation().state.userInfo;
 
   const { city, street, suite, zipcode } = address;
-
-  const sendMail = () => {
-    const mailto = `mailto:${email}?subject=Test subject&body=Body content`;
-    window.location.href = mailto;
-  };
 
   return (
     <>
@@ -46,16 +41,11 @@ function UserDetails(props) {
             </div>
             <div className="userDetailsRow">
               <LanguageIcon />
-              <a href={`${website}`}>
-                <span className="userDetailsMeta">{website}</span>
-              </a>
+              <span className="userDetailsMeta">{website}</span>
             </div>
             <div className="userDetailsRow">
               <EmailIcon />
-              <button onClick={sendMail}>
-                <span className="userDetailsMeta">{email}</span>
-              </button>
-              {/* <span className="userDetailsMeta">{email}</span> */}
+              <span className="userDetailsMeta">{email}</span>
             </div>
             <div className="userDetailsRow">
               <HomeIcon />
